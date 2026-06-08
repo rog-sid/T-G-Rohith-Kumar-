@@ -70,7 +70,7 @@ function workModeVariant(mode: Job['workMode']) {
 
 export default function JobsExplorer() {
   const jobs = useFilteredJobs()
-  const { filters, setFilter } = useFilterStore()
+  const { filters, setFilter, reset } = useFilterStore()
   const [sort, setSort] = useState<{ key: SortKey; dir: SortDir }>({ key: 'postedDate', dir: 'desc' })
   const [page, setPage] = useState(1)
   const [selected, setSelected] = useState<Job | null>(null)
@@ -158,6 +158,11 @@ export default function JobsExplorer() {
             <EmptyState
               title="No matching jobs"
               message="Adjust your search or filters to find postings."
+              action={
+                <Button variant="default" size="sm" onClick={reset} data-testid="jobs-empty-reset-btn">
+                  Reset filters
+                </Button>
+              }
             />
           </div>
         ) : (
