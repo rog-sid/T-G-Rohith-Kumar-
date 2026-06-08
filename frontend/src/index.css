@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 6% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 6% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 6% 16%;
+
+    --primary: 173 80% 32%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 6% 16%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+
+    --accent: 173 70% 94%;
+    --accent-foreground: 173 80% 22%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 173 80% 32%;
+
+    --sidebar: 240 5% 96%;
+    --sidebar-foreground: 240 6% 16%;
+
+    --radius: 0.85rem;
+  }
+
+  .dark {
+    --background: 240 6% 10%;
+    --foreground: 240 5% 96%;
+
+    --card: 240 4% 16%;
+    --card-foreground: 240 5% 96%;
+
+    --popover: 240 4% 15%;
+    --popover-foreground: 240 5% 96%;
+
+    --primary: 172 66% 50%;
+    --primary-foreground: 240 8% 10%;
+
+    --secondary: 240 4% 18%;
+    --secondary-foreground: 240 5% 96%;
+
+    --muted: 240 4% 18%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 240 4% 22%;
+    --accent-foreground: 172 66% 60%;
+
+    --destructive: 0 63% 48%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 4% 24%;
+    --input: 240 4% 24%;
+    --ring: 172 66% 50%;
+
+    --sidebar: 240 5% 13%;
+    --sidebar-foreground: 240 5% 96%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  /* Themed scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/40;
+  }
+  ::selection {
+    @apply bg-primary/25;
+  }
+}
+
+@layer utilities {
+  .card-surface {
+    @apply rounded-[var(--radius)] border border-border bg-card text-card-foreground shadow-sm;
+  }
+  .transition-theme {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }
+}
